@@ -1,0 +1,262 @@
+@import "~antd/lib/style/themes/default.less";
+
+.card {
+  margin-bottom: 24px;
+}
+
+.historyCard{
+  margin-bottom: 24px;
+  :global {
+    .ant-card-body{
+      padding: 0;
+    }
+  }
+}
+
+.historyTitle{
+  padding: 0 0 8px;
+  line-height: 1.2;
+  color: rgba(0, 0, 0, 0.85);
+
+  span{
+    color: #999;
+    font-size: 12px;
+    margin-left: 5px;
+  }
+}
+
+.heading {
+  font-size: 14px;
+  line-height: 22px;
+  margin: 0 0 16px 0;
+}
+
+.steps:global(.ant-steps) {
+  max-width: 750px;
+  margin: 16px auto;
+}
+
+.errorIcon {
+  cursor: pointer;
+  color: @error-color;
+  margin-right: 24px;
+  i {
+    margin-right: 4px;
+  }
+}
+
+.errorPopover {
+  :global {
+    .ant-popover-inner-content {
+      padding: 0;
+      max-height: 290px;
+      overflow: auto;
+      min-width: 256px;
+    }
+  }
+}
+
+.errorListItem {
+  list-style: none;
+  border-bottom: 1px solid @border-color-split;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+  &:hover {
+    background: @primary-1;
+  }
+  &:last-child {
+    border: 0;
+  }
+  .errorIcon {
+    color: @error-color;
+    float: left;
+    margin-top: 4px;
+    margin-right: 12px;
+    padding-bottom: 22px;
+  }
+  .errorField {
+    font-size: 12px;
+    color: @text-color-secondary;
+    margin-top: 2px;
+  }
+}
+
+.editable {
+  td {
+    padding-top: 13px !important;
+    padding-bottom: 12.5px !important;
+  }
+}
+
+// custom footer for fixed footer toolbar
+.advancedForm + div {
+  padding-bottom: 64px;
+}
+
+.advancedForm {
+  position: relative;
+
+  :global {
+    .ant-form .ant-row:last-child .ant-form-item {
+      margin-bottom: 24px;
+    }
+    .ant-table td {
+      transition: none !important;
+    }
+  }
+}
+
+.optional {
+  color: @text-color-secondary;
+  font-style: normal;
+}
+
+.formHeader {
+  background: #fff;
+  padding: 16px 32px;
+  border-bottom: 1px solid #e8e8e8;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  .title {
+    margin-bottom: 16px;
+  }
+
+  .subtitle {
+    margin-bottom: 16px;
+  }
+
+  .right {
+    float: right;
+    height: 100%;
+  }
+}
+
+.content {
+  padding: 140px 24px 0 24px;
+  height: calc(~"100vh - 48px");
+  overflow: auto;
+
+  .customIconPre{
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 32px;
+    font-size: 16px;
+    color: white;
+    background: @primary-color;
+  }
+
+  .customIconCur{
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 32px;
+    font-size: 16px;
+    color: white;
+    background: @success-color;
+  }
+
+  .customIconNext{
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 32px;
+    font-size: 16px;
+    color: rgb(192, 192, 192);
+    background: rgb(240, 240, 240);
+  }
+
+  .customLinkPre{
+    color: @primary-color;
+  }
+
+  .customLinkCur{
+    color: @success-color;
+  }
+
+  .customLinkNext{
+    color: rgb(192, 192, 192);
+  }
+}
+
+.stepForm {
+  margin: 40px auto 0;
+  max-width: 500px;
+}
+
+.stepFormText {
+  margin-bottom: 24px;
+  :global {
+    .ant-form-item-label,
+    .ant-form-item-control {
+      line-height: 22px;
+    }
+  }
+}
+
+.result {
+  margin: 0 auto;
+  max-width: 560px;
+  padding: 24px 0 8px;
+}
+
+.desc {
+  padding: 0 56px;
+  color: @text-color-secondary;
+  h3 {
+    font-size: 16px;
+    margin: 0 0 12px 0;
+    color: @text-color-secondary;
+    line-height: 32px;
+  }
+  h4 {
+    margin: 0 0 4px 0;
+    color: @text-color-secondary;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 12px;
+    line-height: 22px;
+  }
+}
+
+@media screen and (max-width: @screen-md) {
+  .desc {
+    padding: 0;
+  }
+}
+
+.information {
+  line-height: 22px;
+  :global {
+    .ant-row:not(:last-child) {
+      margin-bottom: 24px;
+    }
+  }
+  .label {
+    color: @heading-color;
+    text-align: right;
+    padding-right: 8px;
+  }
+}
+
+.money {
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 14px;
+}
+
+.uppercase {
+  font-size: 12px;
+}

@@ -1,0 +1,87 @@
+html,
+body,
+#root {
+  height: 100vh;
+}
+
+canvas {
+  display: block;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
+}
+
+/************************************** layout ******************************************/
+.ant-layout {
+  min-height: 100%;
+}
+
+.wrapper {
+  padding: 15px;
+}
+
+.logo {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px;
+}
+
+.footer-nav {
+  padding: 15px;
+  height: 48px;
+  text-align: center;
+}
+
+/************************************** spin ******************************************/
+
+.globalSpin {
+  width: 100%;
+  margin: 40px 0 !important;
+}
+
+// temp fix for https://github.com/ant-design/ant-design/commit/a1fafb5b727b62cb0be29ce6e9eca8f579d4f8b7
+.ant-spin-container {
+  overflow: visible !important;
+}
+
+.spin-container {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  margin-bottom: 20px;
+  padding: 30px 50px;
+  margin: 20px 0;
+}
+
+.joinin-logo{
+  height: 28px;
+  margin: 16px;
+}
+
+.ant-upload-select-picture-card i {
+  font-size: 32px;
+  color: #999;
+}
+
+.ant-upload-select-picture-card .ant-upload-text {
+  margin-top: 8px;
+  color: #666;
+}
+
+.joinin-list-item{
+  .ant-list-item-meta-description{
+    i{
+      margin-right: 5px;
+      position: relative;
+      top: 1px;
+
+      &.icon-place{
+        margin-left: 20px;
+      }
+    }
+  }
+}

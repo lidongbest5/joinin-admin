@@ -1,0 +1,82 @@
+@import "~antd/lib/style/themes/default.less";
+
+.logout{
+  position: fixed;
+  bottom: 48px; 
+  left: 0;
+}
+
+.logoSmall{
+  color: @primary-color;
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 50px;
+}
+
+.logoBig{
+  height: 50px;
+  display: block;
+  margin: 15px auto;
+}
+
+.menu {
+  :global(.anticon) {
+    margin-right: 8px;
+  }
+  :global(.ant-dropdown-menu-item) {
+    width: 160px;
+  }
+}
+
+i.trigger {
+  font-size: 20px;
+  line-height: 64px;
+  cursor: pointer;
+  transition: all 0.3s, padding 0s;
+  padding: 0 24px;
+  &:hover {
+    background: @primary-1;
+  }
+}
+
+.right {
+  float: right;
+  height: 100%;
+  margin-right: 16px;
+
+  .action {
+    cursor: pointer;
+    padding: 0 12px;
+    display: inline-block;
+    transition: all 0.3s;
+    height: 100%;
+
+    > i {
+      font-size: 16px;
+      vertical-align: middle;
+      color: @text-color;
+    }
+    &:hover,
+    &:global(.ant-popover-open) {
+      background: @primary-1;
+      color: @primary-color;
+    }
+  }
+  .search {
+    padding: 0;
+    margin: 0 12px;
+    &:hover {
+      background: transparent;
+    }
+  }
+  .account {
+    .avatar {
+      margin: 20px 8px 20px 0;
+      color: @primary-color;
+      background: rgba(255, 255, 255, 0.85);
+      vertical-align: middle;
+    }
+  }
+}

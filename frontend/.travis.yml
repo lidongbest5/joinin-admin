@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+- '9'
+env:
+  global:
+  - DOCKER_REGISTRY=registry.us-west-1.aliyuncs.com
+  - DOCKER_REPO=$DOCKER_REGISTRY/36node/bestnovo-datacenter-admin
+  - secure: pm5BrOPdhC/I4XXOCjRcB4tAhOksawTAYuHNyZHXH4IrteFL/8+BTJDxhzMPTxPgwdJeGWbAcx5wfD8DdfrMXz/jqykiJiKPSl0cIJiZj/htdrIJLoIkyE7NEFc22u3VuGWbfCMeZFly08I/pDD4BW+P7ttT8IghJu+6eriJpPZcU3QDsKxgQC2H0AoNe+yCXiCALeu/m2FRJrFKfeW1IjxOlZEX3rEEF/ttmZrpyv79GABR/ZRTVoQ/0Mk70dOtpzKGrAS+Vm8iBCGNe707RcvjmHqU3gdbSWP1u155pya9MIEZoA0gU/0pnXE3wiAhIfws/kgvHTll67KMd43ukZlesjXLXKA55aYT2py+Hfrjc0Kv5k2SETYLhHgGyoIAYEj18LQEhQmILj3uMVs7nSYWCUSidDY7ghSPywZYZHUhxK4WgVA4dgdqDq7OBnnhSlAfFG7PILZhtJG06G499YN+2HlylXVctqgORKbYe9kbky63/B2i1f5H9tzS1sy4erlxqWKuxliX4bYTgP08HiEifKGsG8WzPbd5pwUKtaABNORxxtwowvoBLa3/XIPxvB2+47ReuKtO0cXPmQovhcM2N1EoEh9EU0tp4tEJAKMtlnMDryiBDDK2JAnlUZif1gUDTEMUy/zKlDvuf44co3IZV2xBg3flUmFw3gztMZw=
+  - secure: EHx8spusQNBNJK2+PcLV7AIyejQbzG9C+IKM5y2XFiu4sbkJCglKj/Ey3V5TMHXeGecx4a4rro5zJQpzNYm47OJxcy0Uh+TeTFEDaInbb9HXwjMC5nIlTzc36PRBr++jnv3mVCTNjgyNJ/TiLzCWnZi7UrHvjXFFRhSZGhn4UJQwcqKscQ1QdyqR1Usv8PLuwahwZbME0wSko8RlUDejloctPTikjDLPNmWUoCjNLHfwNaXQe4w4IP1CZLnvXzX0df0ddh7am87TfliPJnUSYpKHm0+DuHUgM1ip8D9HPygh85Z8lKiojldiMgU2tBTNYQRJH9NRDyy9PSbdA0bnP6qm7yfJV9gQC+vccqXSNNm1zmyjJ8nm65ueSK7Q0v+mJqVomDibJl/3YPGXBdTAfmFu7SA3uEgjsolxlXKCNAo2USpw3V7HxWkPGNHHjzixlg1OnjMPIGqLdYSD69p8D9s9QSNSmsGVTXtCiOZ1fNnTVMpnytF201V4BOwilrwlYcCd7BUtf6ahhdyBu3VEkK7h/qtxsxXw86PSTXw0sUh63zW2eRhrMhuT2HHspOhIL/NCPUn+mo/gSvjFx1rdFNCAeoJX+7AiTsg0CoZXVf8+fiVmqsSc5LzP0U9Xst+2xttZus+1bSDPxCfLOYLX9Kufys5OsFsmCAHpfDvL5NU=
+install:
+- yarn install
+script:
+- yarn test
+after_success:
+- export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_TAG
+  ; fi`
+- if ([ ! -z "$TAG" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$SKIP_BUILD"
+  != "true" ]); then bin/build-docker.sh $TAG $DOCKER_USER $DOCKER_PASS $DOCKER_REGISTRY
+  $DOCKER_REPO; fi
+notifications:
+  slack:
+    secure: YRw6YInHS3nlFYZedO5+C110L0Z43NS6i2iabpeXQW3o6H2eFifbJoZDOVHDFsMqlvibKARKccUb2Akvtct4NF/ITtF7F5h26bg9kMGHOF9FRM2FglYTRVh0rdxNHuHtAnCK6SednYa588XrQAPJ/HnGT+8xVeJW9CiSr7t1TBI8AVcF47lhHFY0iBDlvYfBzcX0dFyngLOFJc3h4w1DMv8q8+CW8plLIMpqbPLDTQzvKSF4LL/Rg/1TdWtPmGdInpDhRlYvCss0CVJO9Jr4mzmuNh3+lJYvZxSGDz5RdarS/3OPdBN3tIqV/8QpXCUwukI0XFDiUC8k1nMETaMEYcLcc3XHBaQ+YbZAeKCxAVocY8Cbme0/fQKviYPigTyxo+umFVr4J2xIl0c52lPoXy2llAPH1D62Ox79l/4kQSErE+0crx5qKFkQNoTpYzM7M7H5C/qv6JvYByWpy8AYWSn+IsHuTA/jiO2DR8LvGsKFZ2oJdiMtrTefcvXrhPTrEBTJ+wzRshGKBwusc2EhnTobS8ncOuRf1gArW3PcBCtRLCTn33skOCqwtK3cEHd1p4va2km+a5ft+ijTsvRMMfWDUOxEmSM/lcHwlDX0HMArKOc0GFuJGTh7F9BAe7vUAQag+FeaWeUOXnTyMU1Jhkcy4subTeNCaZxfsxwE9gU=
